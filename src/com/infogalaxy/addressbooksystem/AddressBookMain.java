@@ -29,6 +29,13 @@ public class AddressBookMain
 	
 	void displayContact()
 	{
+		if(contact == null)
+		{
+			System.out.println(" Contact is Not Available ");
+		}
+		else 
+		{
+		
 		System.out.println(" First Name :"+contact.getFirstName());
 		System.out.println(" Last Name :"+contact.getLastName());
 		System.out.println(" Address :"+contact.getAddress());
@@ -37,6 +44,7 @@ public class AddressBookMain
 		System.out.println(" Zip Code :"+contact.getZip());
 		System.out.println(" Phone No :"+contact.getPhoneNo());
 		System.out.println(" Email :"+contact.getEmail());
+		}
 		
 	}
 	
@@ -71,6 +79,20 @@ public class AddressBookMain
 		}
 	}
 	
+	public void deleteContact()
+	{
+		System.out.println(" Enter the First Name to Delete the Contact : ");
+		String firstNameString = scanner.next();
+		if(firstNameString.equals(contact.getFirstName()))
+		{
+			System.out.println(" Contact is Found ");
+			contact = null;
+		}else 
+		{
+			System.out.println(" Given Name of Contact is Not Found ");
+		}
+	}
+	
 	public static void main(String[] args)
 	{
 		System.out.println(" Welcome to Address Book System ");
@@ -78,6 +100,8 @@ public class AddressBookMain
 		addressBookMain.addContact();
 		addressBookMain.displayContact();
 		addressBookMain.editContact();
+		addressBookMain.displayContact();
+		addressBookMain.deleteContact();
 		addressBookMain.displayContact();
 	}
 }
